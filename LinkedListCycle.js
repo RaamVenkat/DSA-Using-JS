@@ -19,7 +19,7 @@ b.next = c;
 c.next = d;
 d.next = e;
 e.next = g;
-//g.next = a;
+g.next = a;
 
 function PrintList(head)
 {
@@ -38,24 +38,24 @@ function PrintList(head)
 
 function CheckLoop(head)
 {
-    //if(head == null) return;
-    var f = s = head;
+    if(head == null) return false;
+    var s=head,f=head.next
 
     while(f)
     {
-        s = s.next;
-        f = f.next.next;
-        if(f == null)
+        if((f == null) || (f.next == null))
         {
-            //console.log("No Loop");
             return 0;
         }
-        else if(s == f)
+        if(s == f)
         {
-            console.log("Loop Exists");
+            console.log("Loop Exists")
             return 1;
         }
+        s = s.next;
+        f = f.next.next;
     }
+    return 1;
 }
 
 PrintList(a);

@@ -19,7 +19,7 @@ b.next = c;
 c.next = d;
 d.next = e;
 e.next = g;
-g.next = a;
+//g.next = a;
 
 function PrintList(head)
 {
@@ -38,7 +38,7 @@ function PrintList(head)
 
 function CheckLoop(head)
 {
-    if(head == null) return false;
+    if(head == null) return 0;
     var s=head,f=head.next
 
     while(f)

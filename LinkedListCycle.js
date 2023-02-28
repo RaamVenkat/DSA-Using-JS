@@ -12,14 +12,13 @@ const b = new Node("B");
 const c = new Node("C");
 const d = new Node("D");
 const e = new Node("E");
-const g = new Node("G");
+
 
 a.next = b;
 b.next = c;
 c.next = d;
 d.next = e;
-e.next = g;
-//g.next = a;
+e.next = a;
 
 function PrintList(head)
 {
@@ -39,24 +38,25 @@ function PrintList(head)
 function CheckLoop(head)
 {
     if(head == null) return 0;
-    var s=head,f=head.next
+    var s=f=head;
 
-    while(f)
+    while((f != null) && (f.next != null))
     {
-        if((f == null) || (f.next == null))
-        {
-            return 0;
-        }
-        if(s == f)
-        {
-            console.log("Loop Exists")
-            return 1;
-        }
         s = s.next;
         f = f.next.next;
+        if(s == f)
+        {
+            s=head;
+            while(s != f)
+            {
+                s = s.next;
+                f = f.next;
+            }
+            console.log("Loop Exists at",s.value);
+            return 1;
+        }
     }
-    return 1;
+    return 0;
 }
-
 PrintList(a);
 //CheckLoop(a);

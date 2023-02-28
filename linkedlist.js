@@ -142,7 +142,6 @@ function LinkedList() {
   console.log(conga.size());
   */
 
-  /*
 class Node {
   constructor(data, next = null) {
     this.data = data;
@@ -271,8 +270,9 @@ l.InsertLast(400);
 l.InsertAt(500, 3);
 
 l.PrintListData();
-*/
 
+
+/*
 class Node
 {
   constructor(value)
@@ -298,3 +298,4 @@ const PrintData = (head) =>{
 }
 
 PrintData(a);
+*/

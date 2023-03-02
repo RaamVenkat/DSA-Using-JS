@@ -43,7 +43,6 @@ function PrintList(head)
 function Intersection(head1,head2)
 {
     let current1 = head1;
-    let current2 = head2;
 
     while(current1.next)
     {

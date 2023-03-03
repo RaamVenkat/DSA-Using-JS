@@ -157,17 +157,50 @@ class LinkedList
             even = even.next;
         }
     }
+
+    Palindrome()
+    {
+        if(this.head == null) return;
+        let previous=null,current=this.head,nn=null;
+        while(current)
+        {
+            nn = current.next;
+            current.next = previous;
+            previous = current;
+            current = nn;
+        }
+        current = this.head
+        while(current)
+        {
+            if(current.value == previous.value)
+            {
+                current = current.next;
+                previous = previous.next;
+            }
+            else
+            {
+                return console.log("Not Palindrome");
+            }
+        }
+        return console.log("Palindrome");
+    }
 }
+
+const PrintData = (head) =>{
+    if(head == null) return;
+    console.log(head.value);
+    PrintData(head.next);
+  }
 
 const ll = new LinkedList();
 ll.Insert("A");
 ll.Insert("B");
 ll.Insert("C");
 ll.Insert("D");
-ll.Insert("E");
-ll.Insert("F");
-ll.Insert("G");
+ll.Insert("C");
+ll.Insert("B");
+ll.Insert("A");
 ll.PrintList();
 console.log("---");
 ll.EvenOdd();
-ll.PrintList();
+ll.Palindrome();

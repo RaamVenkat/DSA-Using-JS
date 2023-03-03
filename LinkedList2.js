@@ -134,6 +134,29 @@ class LinkedList
             current = current.next;
         }
     }
+
+    EvenOdd()
+    {
+        let odd=this.head,even=this.head.next,eh=even;
+        while(odd)
+        {
+            if(odd == null || even == null || even.next == null )
+            {
+                odd.next = eh;
+                return;
+            }
+            odd.next = even.next;
+            odd = odd.next
+            if(odd.next == null)
+            {
+                even.next = null;
+                odd.next = eh;
+                return;
+            }
+            even.next = odd.next;
+            even = even.next;
+        }
+    }
 }
 
 const ll = new LinkedList();
@@ -142,18 +165,9 @@ ll.Insert("B");
 ll.Insert("C");
 ll.Insert("D");
 ll.Insert("E");
-ll.InsertFirst("F");
-ll.InsertAt("K",3);
-ll.GetAt(3);
-console.log("---");
+ll.Insert("F");
+ll.Insert("G");
 ll.PrintList();
 console.log("---");
-ll.RemoveAt(3);
-ll.PrintList();
-console.log("---");
-ll.ReverseList();
-ll.PrintList();
-console.log("---");
-ll.RemoveAt(5);
-ll.UpdateAt("F",5)
+ll.EvenOdd();
 ll.PrintList();

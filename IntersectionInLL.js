@@ -42,38 +42,61 @@ function PrintList(head)
 
 function Intersection(head1,head2)
 {
-    let current1 = head1;
+    // let current1 = head1;
 
-    while(current1.next)
+    // while(current1.next)
+    // {
+    //     current1 = current1.next;
+    // }
+    
+    // current1.next = head1;
+
+    // var slow=fast=head2;
+
+    // while((fast != null) && (fast.next != null))
+    // {
+    //     slow = slow.next;
+    //     fast = fast.next.next;
+    //     if(slow == fast)
+    //     {
+    //         slow=head2;
+    //         while(slow != fast)
+    //         {
+    //             slow = slow.next;
+    //             fast = fast.next;
+    //         }
+    //         console.log("Intersection at",slow.value);
+    //         current1.next = null;
+    //         return 1;
+    //     }
+    // }
+    // return 0;
+
+    let current1 = head1, current2 = head2;
+    while(current1 != current2)
     {
         current1 = current1.next;
-    }
-    
-    current1.next = head1;
-
-    var slow=fast=head2;
-
-    while((fast != null) && (fast.next != null))
-    {
-        slow = slow.next;
-        fast = fast.next.next;
-        if(slow == fast)
+        current2 = current2.next;
+        if(current1 == current2)
         {
-            slow=head2;
-            while(slow != fast)
-            {
-                slow = slow.next;
-                fast = fast.next;
-            }
-            console.log("Intersection at",slow.value);
-            current1.next = null;
-            return 1;
+            if(current1 == null) return;
+            console.log(current1.value);
+            return;
+        }
+        if(current1 == null)
+        {
+            current1 = head2;
+        }
+        if(current2 == null)
+        {
+            current2 = head1;
         }
     }
-    return 0;
+    console.log(current1.value);
 }
 
 Intersection(a,h);
+console.log("---");
 PrintList(a);
 console.log("---");
 PrintList(h);

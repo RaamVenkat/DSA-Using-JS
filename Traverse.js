@@ -73,12 +73,6 @@ class LinkedList
   
 }
 
-// const PrintData = (head) =>{
-//     if(head == null) return;
-//     console.log(head.value);
-//     PrintData(head.next);
-//   }
-
 const ll = new LinkedList();
 ll.Insert(1);
 ll.Insert(2);
